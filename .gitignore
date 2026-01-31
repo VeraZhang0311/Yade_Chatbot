@@ -58,6 +58,9 @@ htmlcov/
 .env
 .env.local
 
+# Streamlit secrets
+.streamlit/secrets.toml
+
 # 日志文件
 *.log
 
