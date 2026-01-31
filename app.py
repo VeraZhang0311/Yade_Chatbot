@@ -19,11 +19,14 @@ st.caption("与来自涅夫海湾的旅行者对话")
 
 def get_api_key():
     """获取API密钥：优先从Streamlit secrets，否则从环境变量"""
-    # Streamlit Cloud secrets
-    if hasattr(st, "secrets") and "QWEN_API_KEY" in st.secrets:
-        return st.secrets["QWEN_API_KEY"]
-    # 环境变量
     import os
+    # Streamlit Cloud secrets
+    try:
+        if "QWEN_API_KEY" in st.secrets:
+            return st.secrets["QWEN_API_KEY"]
+    except Exception:
+        pass
+    # 环境变量
     return os.environ.get("QWEN_API_KEY", "")
 
 
