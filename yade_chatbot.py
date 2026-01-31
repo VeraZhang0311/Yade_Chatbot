@@ -498,7 +498,8 @@ def main():
     """
     主函数 - 使用示例
     """
-    API_KEY = "sk-7ce797789b7d4edd82c9be9c85173379"
+    # 优先从环境变量读取API密钥，否则使用默认值
+    API_KEY = os.environ.get("QWEN_API_KEY", "sk-7ce797789b7d4edd82c9be9c85173379")
 
     # 创建聊天机器人实例
     chatbot = YadeChatbot(
